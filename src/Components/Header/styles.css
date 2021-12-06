@@ -1,0 +1,45 @@
+.header-wrapper {
+  display: flex;
+  padding: 7.8rem 6.125rem 0 4.15rem;
+  flex-direction: row;
+}
+
+.weather-info {
+  text-transform: capitalize;
+  display: flex;
+  flex-direction: column;
+  width: 28rem;
+  margin-left: 2rem;
+}
+
+.grey-text {
+  font-size: 3rem;
+  color: #A8AABD;
+  justify-content: space-between;
+  display: flex;
+}
+
+.white-text {
+  font-size: 15.3rem;
+  color: white;
+  align-self: center;
+}
+
+.data-wrapper {
+  display: flex;
+  margin-left: 2rem;
+}
+
+.date-text {
+  color: white;
+  font-size: 6rem;
+  display: flex;
+  flex-direction: column;
+  padding-top: 2rem;
+}
+
+.date-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-left: 4rem;
+}
