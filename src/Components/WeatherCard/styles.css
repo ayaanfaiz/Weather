@@ -3,18 +3,18 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 3rem ;
+  padding: 1rem 3rem;
   height: 20rem;
 }
 
 .card:hover {
-  background-color: #51557A;
+  background-color: #51557a;
   border-radius: 6px;
 }
 
 .grey-text {
   font-size: 3rem;
-  color: #A8AABD;
+  color: #a8aabd;
   justify-content: space-between;
   display: flex;
 }

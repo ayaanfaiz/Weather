@@ -1,8 +1,8 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import WeatherCard from './index';
+import React from "react";
+import { render, screen } from "@testing-library/react";
+import WeatherCard from "./index";
 
-test('renders header', () => {
+test("renders header", () => {
   const weatherData = {
     temperature: 10,
     highTemperature: 10,
@@ -11,8 +11,12 @@ test('renders header', () => {
     weatherIconDesc: "Clear Sky",
   };
   // render the component
-  render(<WeatherCard cardDetails={weatherData} onCardSelect={() => console.log('On card select')} />);
-  const linkElement = screen.getByText('10°');
+  render(
+    <WeatherCard
+      cardDetails={weatherData}
+      onCardSelect={() => console.log("On card select")}
+    />
+  );
+  const linkElement = screen.getByText("10°");
   expect(linkElement).toBeInTheDocument();
 });
-

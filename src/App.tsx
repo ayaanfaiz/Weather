@@ -1,6 +1,6 @@
-import React from 'react';
-import './App.css';
-import PageWrapper from './Components/PageWrapper';
+import React from "react";
+import "./App.css";
+import PageWrapper from "./Components/PageWrapper";
 
 function App() {
   return (

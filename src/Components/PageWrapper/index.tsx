@@ -21,12 +21,20 @@ import "./styles.css";
 const PageWrapper: React.FC = () => {
   // State to save all the weather data from the API
   const [weatherData, setWeatherData] = useState<Array<WeatherData>>();
+  // State to set the Current City - From API
   const [city, setCity] = useState<string>("");
+
+  // Currently selected weather
   const [selectedWeather, setSelectedWeather] = useState<WeatherData>();
+
+  // Loader state
   const [loading, setLoading] = useState<boolean>(false);
+
+  // API error
   const [apiFailed, setApiFailed] = useState<boolean>(false);
 
   useEffect(() => {
+    // Setting the loading to true to show the loader on the page
     setLoading(true);
     axios
       .get("/data/2.5/forecast", {
@@ -36,6 +44,7 @@ const PageWrapper: React.FC = () => {
         },
       })
       .then((responseData) => {
+        // Setting the loading to false to hide the loader on the page
         setLoading(false);
         setCity(responseData?.data?.city?.name || "");
         const formattedWeatherData = segregateWeatherData(
@@ -46,11 +55,13 @@ const PageWrapper: React.FC = () => {
           setSelectedWeather(formattedWeatherData[0]);
       })
       .catch(() => {
+        // Setting the API error to show failed state
         setApiFailed(true);
         setLoading(false);
       });
   }, []);
 
+  // Callback that handles the currently selected weather data
   const onCardSelect = useCallback((cardData: WeatherData) => {
     setSelectedWeather(cardData);
   }, []);
@@ -58,7 +69,9 @@ const PageWrapper: React.FC = () => {
   return (
     <>
       {apiFailed ? (
-        <div className='failed'>Failed to get data. Please refresh the page</div>
+        <div className="failed">
+          Failed to get data. Please refresh the page
+        </div>
       ) : (
         <>
           {loading ? (
