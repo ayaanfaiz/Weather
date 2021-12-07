@@ -8,7 +8,7 @@ export const segregateWeatherData = (weatherData: Array<any>): Array<WeatherData
       temperature: Math.round(temperature - 273),
       highTemperature: Math.round(highTemperature - 273),
       lowTemperature: Math.round(lowTemperature - 273),
-      time: dt,
+      time: dt*1000,
       weatherIconDesc,
     }
   })
