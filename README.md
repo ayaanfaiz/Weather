@@ -29,6 +29,9 @@ It gets the data from the API and show in the UI.
 
 * `npm run test`
 
+## Deployment
+
+* The app can be deployed on Github pages using `npm run deploy`.
 
 ## Built With
 
