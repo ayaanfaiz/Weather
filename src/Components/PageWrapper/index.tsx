@@ -15,13 +15,16 @@ import WeatherList from "../WeatherList";
 import { ReactComponent as Loader } from "../../assets/loader.svg";
 
 // Styles
-import './styles.css'
+import "./styles.css";
 
+// Main Component that manages all other components
 const PageWrapper: React.FC = () => {
+  // State to save all the weather data from the API
   const [weatherData, setWeatherData] = useState<Array<WeatherData>>();
   const [city, setCity] = useState<string>("");
   const [selectedWeather, setSelectedWeather] = useState<WeatherData>();
   const [loading, setLoading] = useState<boolean>(false);
+  const [apiFailed, setApiFailed] = useState<boolean>(false);
 
   useEffect(() => {
     setLoading(true);
@@ -41,6 +44,10 @@ const PageWrapper: React.FC = () => {
         setWeatherData(formattedWeatherData);
         formattedWeatherData.length &&
           setSelectedWeather(formattedWeatherData[0]);
+      })
+      .catch(() => {
+        setApiFailed(true);
+        setLoading(false);
       });
   }, []);
 
@@ -50,13 +57,23 @@ const PageWrapper: React.FC = () => {
 
   return (
     <>
-      {loading ? 
-      <div className='loader'>
-      <Loader height='80px' width='80px'/>
-      </div> : (
+      {apiFailed ? (
+        <div className='failed'>Failed to get data. Please refresh the page</div>
+      ) : (
         <>
-          <Header selectedWeather={selectedWeather} city={city} />
-          <WeatherList weatherList={weatherData} onCardSelect={onCardSelect} />
+          {loading ? (
+            <div className="loader">
+              <Loader height="80px" width="80px" />
+            </div>
+          ) : (
+            <>
+              <Header selectedWeather={selectedWeather} city={city} />
+              <WeatherList
+                weatherList={weatherData}
+                onCardSelect={onCardSelect}
+              />
+            </>
+          )}
         </>
       )}
     </>

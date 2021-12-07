@@ -4,3 +4,12 @@
   align-items: center;
   height: 100%;
 }
+
+.failed {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: #fff;
+  font-size: x-large;
+}
