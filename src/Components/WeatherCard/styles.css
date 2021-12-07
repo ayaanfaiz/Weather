@@ -1,0 +1,25 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 3rem ;
+  height: 20rem;
+}
+
+.card:hover {
+  background-color: #51557A;
+  border-radius: 6px;
+}
+
+.grey-text {
+  font-size: 3rem;
+  color: #A8AABD;
+  justify-content: space-between;
+  display: flex;
+}
+
+.temperature-text {
+  color: white;
+  font-size: 5.125rem;
+}

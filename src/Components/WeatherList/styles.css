@@ -1,0 +1,6 @@
+.weather-list-wrapper {
+  display: flex;
+  overflow-x: scroll;
+  bottom: 0px;
+  padding-top: 80px;
+}
