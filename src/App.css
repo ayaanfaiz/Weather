@@ -1,5 +1,7 @@
 .App {
+  display: flex;
   height: 100vh;
   background-color: #262A59;
   font-family: 'Roboto', sans-serif;
+  flex-direction: column;
 }
